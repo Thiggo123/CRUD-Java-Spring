@@ -18,7 +18,7 @@ public class UsuarioController {
 
     @PostMapping
     public ResponseEntity<Usuario> criarUsuario(@RequestBody CriarUsuarioDTO criarUsuarioDTO) {
-
+return null;
     }
 
     @GetMapping("/{usuarioId}")
