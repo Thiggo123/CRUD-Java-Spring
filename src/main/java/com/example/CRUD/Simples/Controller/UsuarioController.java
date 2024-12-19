@@ -6,6 +6,8 @@ import com.example.CRUD.Simples.entity.Usuario;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
+
 @RestController
 @RequestMapping("/usuario")
 public class UsuarioController {
@@ -18,7 +20,9 @@ public class UsuarioController {
 
     @PostMapping
     public ResponseEntity<Usuario> criarUsuario(@RequestBody CriarUsuarioDTO criarUsuarioDTO) {
-        return null;
+       var userId = usuarioService.criarUsuario(criarUsuarioDTO);
+
+       return ResponseEntity.created(URI.create("/usuario" + userId.toString())).build();
     }
 
     @GetMapping("/{usuarioId}")
